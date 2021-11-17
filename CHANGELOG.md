@@ -1,3 +1,3 @@
-## 0.0.1
+## Version 0.1.0 [17-Nov-2021]
 
-* TODO: Describe initial release.
+  + Initial release.
