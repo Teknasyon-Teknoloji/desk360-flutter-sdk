@@ -1,4 +1,4 @@
-# Desk360 (flutter sdk)
+# Desk360 Flutter SDK
 * This package gives wrapper methods for desk360 sdks. [iOS](https://github.com/Teknasyon-Teknoloji/desk360-ios-sdk) - [Android](https://github.com/Teknasyon-Teknoloji/desk360-android-sdk)
 
 ---
