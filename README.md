@@ -11,7 +11,7 @@ Add below code into your `pubspec.yaml` file under `dependencies` section.
 desk360flutter:
     git:
       url: https://github.com/Teknasyon-Teknoloji/desk360-flutter-sdk.git
-      ref: 0.1.0
+      ref: 0.1.1
 ```
 
 And run `$ flutter pub get`
@@ -26,7 +26,7 @@ And run `$ flutter pub get`
 * **ANDROID**
     - Set kotlin_version "1.4.32" or higher in `android/build.gradle`
     - Set `minSdkVersion` to 21 or higher in `android/app/build.gradle`
-    - Add `maven { url 'https://raw.githubusercontent.com/Teknasyon-Teknoloji/desk360-android-sdk/master/' }` into `android/build.gradle` (Add into repositories under allprojects)
+    - Add `maven { url 'https://jitpack.io' }` into `android/build.gradle` (Add into repositories under allprojects)
 
 ---
 
