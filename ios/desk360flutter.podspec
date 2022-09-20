@@ -7,11 +7,11 @@ Pod::Spec.new do |s|
   s.version          = '1.0.0'
   s.summary          = 'Desk360 Flutter SDK'
   s.description      = <<-DESC
-A new flutter plugin project.
+Desk360 Flutter SDK
                        DESC
-  s.homepage         = 'http://example.com'
+  s.homepage         = 'https://www.teknasyon.com/'
   s.license          = { :type => "Commercial", :file => '../LICENSE' }
-  s.author           = { 'Teknasyon' => 'http://www.teknasyon.com/' }
+  s.author           = { 'Teknasyon' => 'https://www.teknasyon.com/' }
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.public_header_files = 'Classes/**/*.h'

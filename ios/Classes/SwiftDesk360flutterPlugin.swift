@@ -33,10 +33,6 @@ public class SwiftDesk360flutterPlugin: NSObject, FlutterPlugin {
                 desk360Environment = .production
             }
             
-//            var cred: Desk360Properties.Credentials?
-//            if let userCred = properties["credentials"] as? Dictionary<String,Any> {
-//                cred = .init(name: userCred["name"] as! String, email: userCred["email"] as! String)
-//            }
             let props = Desk360Properties(
               appID: properties["appID"] as? String ?? "",
               deviceID: properties["deviceID"] as? String ?? "",
