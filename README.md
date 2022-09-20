@@ -11,7 +11,7 @@ Add below code into your `pubspec.yaml` file under `dependencies` section.
 desk360flutter:
     git:
       url: https://github.com/Teknasyon-Teknoloji/desk360-flutter-sdk.git
-      ref: 0.1.1
+      ref: 1.0.0
 ```
 
 And run `$ flutter pub get`
