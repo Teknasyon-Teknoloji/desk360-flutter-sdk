@@ -30,7 +30,7 @@ class Desk360flutter {
   }
 
   //ios only
-  static void show({animated: false}) async {
+  static void show({animated = false}) async {
     await _channel.invokeMethod('show', {"animated": animated});
   }
 
@@ -69,13 +69,13 @@ class Desk360flutter {
   }
 
   //ios only
-  static void ticketDetailsViewController(ticket, {animated: false}) async {
+  static void ticketDetailsViewController(ticket, {animated = false}) async {
     await _channel.invokeMethod('ticketDetailsViewController',
         {"ticket": ticket, "animated": animated});
   }
 
   //ios only
-  static void showDetails(ticket, {animated: false}) async {
+  static void showDetails(ticket, {animated = false}) async {
     await _channel
         .invokeMethod('showDetails', {"ticket": ticket, "animated": animated});
   }

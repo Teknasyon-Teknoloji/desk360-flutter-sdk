@@ -44,6 +44,6 @@ android {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.github.Teknasyon-Teknoloji:desk360-android-sdk:1.0.8'
+    implementation 'com.github.Teknasyon-Teknoloji:desk360-android-sdk:1.0.10'
     implementation 'org.greenrobot:eventbus:3.2.0'
 }

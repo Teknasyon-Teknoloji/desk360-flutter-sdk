@@ -11,7 +11,7 @@ Add below code into your `pubspec.yaml` file under `dependencies` section.
 desk360flutter:
     git:
       url: https://github.com/Teknasyon-Teknoloji/desk360-flutter-sdk.git
-      ref: 1.0.0
+      ref: 2.0.0
 ```
 
 And run `$ flutter pub get`
@@ -22,11 +22,32 @@ And run `$ flutter pub get`
     - Set minimum ios version 10.0 or higher in `ios/Podfile` like: `platform :ios, '10.0'`
     - Add `use_frameworks!` into `ios/Podfile` if not exists.
     - Run `$ cd ios && pod install`
+    - If you get `Swift Compiler Error (Xcode): Compiling for iOS 10.0, but module 'DeviceKit' has a minimum deployment target of iOS 11.0` error.
+        - Add `platform :ios, '11.0'` into your `ios/Podfile`.
+        - Add following code into your `ios/Podfile`.
+```ruby
+post_install do |installer|
+  installer.generated_projects.each do |project|
+    project.targets.each do |target|
+        target.build_configurations.each do |config|
+          config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
+          config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '11.0'
+         end
+    end
+  end
+end
+```
 
 * **ANDROID**
-    - Set kotlin_version "1.4.32" or higher in `android/build.gradle`
-    - Set `minSdkVersion` to 21 or higher in `android/app/build.gradle`
+    - Make sure of kotlin_version "1.4.32" or higher in `android/build.gradle`
+    - Also make sure of `minSdkVersion` to 21 or higher in `android/app/build.gradle`
     - Add `maven { url 'https://jitpack.io' }` into `android/build.gradle` (Add into repositories under allprojects)
+    - Add following code into `android/app/build.gradle` (Add inside android section)
+```
+buildFeatures {
+    dataBinding true
+}
+```
 
 ---
 
@@ -103,7 +124,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
        Desk360.setPushToken(deviceToken: deviceToken)
   }
-  
+
 }
 ```
 
@@ -116,16 +137,16 @@ import Desk360
 
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
-  
+
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-  
+
       Desk360.applicationLaunchChecker(launchOptions)
       if #available(iOS 10.0, *) {
           let center = UNUserNotificationCenter.current()
           center.delegate = self
       }
       return true
-      
+
     }
 }
 
@@ -140,7 +161,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
   func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
       Desk360.applicationUserInfoChecker(userInfo)
   }
-  
+
   @available(iOS 10.0, *)
   public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
       Desk360.applicationUserInfoChecker(response.notification.request.content.userInfo)
@@ -169,7 +190,7 @@ If you would like to get a list of the unread tickets you can do so like follows
   });
 ```
 
-You can show the unread tickets the way that fits your app design and expierence. If you want to navigate to a specific ticket 
+You can show the unread tickets the way that fits your app design and expierence. If you want to navigate to a specific ticket
 detail you can do so so by following:
 
 ```dart
